@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ProfilController!
+{% endblock %}
+
+{% block body %}
+  
+	{% if coms %}
+
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Produit</th>
+					<th>Description</th>
+					<th>Quantité</th>
+					<th>Etat</th>
+					<th>Date d'achat</th>
+					<th>Montant</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for item in coms %}
+					<tr>
+						<td>{{ item.produit.titre }}</td>
+						<td>{{ item.produit.description|raw }}</td>
+						<td>{{ item.quantite }}</td>
+						<td>{{ item.etat }}</td>
+						<td>{{ item.dateEnregistrement|date('d/m/Y à H:i:s') }}</td>
+						<td>{{ item.montant / 100|number_format(2) }}€</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+
+	{% else %}
+		<p>Vous n'avez pas encore passé commande chez nous !</p>
+	{% endif %}
+
+{% endblock %}

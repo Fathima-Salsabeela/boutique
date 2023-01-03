@@ -1,0 +1,73 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello CartController!
+{% endblock %}
+
+{% block body %}
+
+	<h1 class="text-center">Votre panier</h1>
+
+	{% if items %}
+		{# si j'ai des produits dans mon panier, j'affiche son contenu #}
+
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Produit</th>
+					<th>Taille</th>
+					<th>Prix</th>
+					<th>Quantité</th>
+					<th>Total</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for item in items %}
+					<tr>
+						<td>{{ item.product.titre }}</td>
+						<td>{{ item.product.taille }}</td>
+						<td>{{ item.product.prix / 100|number_format(2) }}€</td>
+						<td>
+							<a href="{{ path('cart_decrement', {id: item.product.id}) }}" class="btn-sm text-dark text-decoration-none"> <i class="fas fa-minus"></i></a> 
+							{{ item.quantity }}
+							<a href="{{ path('cart_add', {id: item.product.id}) }}" class="btn-sm text-dark text-decoration-none">
+								<i class="fas fa-plus"></i>
+							</a>
+						</td>
+						<td>{{ (item.product.prix * item.quantity) / 100|number_format(2) }}€</td>
+						<td>
+							<a href="{{ path('cart_remove', {id: item.product.id}) }}" class="btn-sm btn-danger text-decoration-none">
+								<i class="fas fa-trash"></i>
+							</a>
+						</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+			<tfoot>
+				<tr>
+					<td colspan="4" class="text-end">Total :</td>
+					<td>{{ total / 100|number_format(2) }}€</td>
+					<td>
+						<a href="{{ path('cart_empty') }}" class="btn-sm btn-danger"> 
+							<i class="fas fa-trash-alt"></i></a>
+					</td>
+				</tr>
+			</tfoot>
+		</table>
+		{% if app.user %}
+			<div class="d-grid gap-2">
+				<a href="{{ path('checkout') }}" class="btn-lg btn-success text-decoration-none text-center">Valider mon panier</a>
+			</div>
+		{% else %}
+			<a href="{{ path('app_login') }}">Veuillez vous connecter</a>
+			pour valider vos achats.
+		{% endif %}
+
+	{% else %}
+		{# sinon, j'indique que le panier est vide #}
+
+		<p>Votre panier est vide !</p>
+
+	{% endif %}
+
+{% endblock %}
