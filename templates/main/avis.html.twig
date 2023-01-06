@@ -1,0 +1,71 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Avis
+{% endblock %}
+
+{% block body %}
+  <h1>Aneeqa boutique</h1>
+  <h1>Avis</h1>
+
+	<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore, sunt? Veniam quisquam repellat tenetur ut dolorum quae cum? Ipsum ad excepturi architecto autem provident molestias inventore corporis atque vero rem. </p>	
+<h3>Contactez-nous pour toutes vos questions et écrivez votre avis </h3>
+<div class="class container">
+<div class="class boder-dark col-8 align-center">
+
+    {{ form_start(form) }}
+    
+	{{ form_row(form.pseudo) }}
+	{{ form_row(form.ville ) }} 
+	{{ form_row(form.codepostal) }}
+    {{ form_row(form.suject) }}
+	{{ form_row(form.point) }}
+	{{ form_row(form.date_enregistrement) }}
+    
+
+	<button class="btn btn-primary col-12" type="submit">Envoyez </button>
+
+	{{ form_end(form) }}
+
+</div>
+</div>
+
+
+
+
+<h1 class="text-center">AVIS</h1>
+
+<table class="table">
+<thead>
+    <tr>
+        <th>Pseudo</th>
+        <th>ville</th>
+        <th>codepostal</th>
+        <th>suject</th>
+        <th>point</th>
+        <th>date</th>
+       
+    </tr>
+</thead>
+<tbody>
+{% for avis in avis %}
+    <tr>
+        <td>{{ avis.pseudo}}</td>
+        <td>{{ avis.ville}}</td>
+        <td>{{ avis.codepostal}}</td>
+        <td>{{ avis.suject }}</td>
+        <td>{{ avis.point}}</td>
+        <td>{{ avis.dateEnregistrement }}</td>
+	
+	
+    </tr>
+ 
+{% endfor %}
+</tbody>
+</table>
+
+
+
+
+
+
+{% endblock %}

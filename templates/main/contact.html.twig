@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Contact{% endblock %}
+
+{% block body %}
+<h3>Contactez-nous pour toutes vos questions </h3>
+<div class="class container">
+<div class="class boder-dark col-8 align-center">
+
+    {{ form_start(form) }}
+    
+	{{ form_row(form.nom) }}
+	{{ form_row(form.prenom ) }} 
+	{{ form_row(form.email) }}
+    {{ form_row(form.telephone) }}
+	{{ form_row(form.adresse) }}
+	{{ form_row(form.question) }}
+  
+	<button class="btn btn-primary col-12" type="submit">Envoyez </button>
+
+	{{ form_end(form) }}
+
+</div>
+</div>
+
+
+
+
+
+{% endblock %}

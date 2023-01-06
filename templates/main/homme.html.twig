@@ -9,18 +9,18 @@
 
 	<div class="row">
 
-		{% for femme in femme %}
+		{% for homme in homme %}
 
 			<div class="col-md-4">
 				<div class="card mb-3" style="width: 18rem;">
-					<h3 class="card-header">{{ femme.titre }}</h3> 
-					<img src="{{ femme.photo }}" alt="Image du produit">
+					<h3 class="card-header">{{homme.titre }}</h3> 
+					<img src="{{ homme.photo }}" alt="Image du produit">
 					<div class="card-body">
-						<p class="card-text text-end fw-bold">{{ femme.prix / 100|number_format(2)}}€</p>
+						<p class="card-text text-end fw-bold">{{homme.prix / 100|number_format(2)}}€</p>
 					</div>
-					<h6 class="card-header">{{ femme.description }}</h6> 
+					<h6 class="card-header">{{ homme.description }}</h6> 
 					<div class="card-body text-end">
-                    <a href="{{path("cart_add",{id:femme.id})}}" class="card-link btn btn-primary">Ajouter au panier</a>
+                    <a href="{{path("cart_add",{id:homme.id})}}" class="card-link btn btn-primary">Ajouter au panier</a>
                   </div>
 				</div>
 			</div>

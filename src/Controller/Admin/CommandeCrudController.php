@@ -34,7 +34,15 @@ class CommandeCrudController extends AbstractCrudController
             ChoiceField::new('etat')->setChoices(['en cours de traitement' => "en cours de traitement", 'envoyée' => "envoyée", 'livrée' => "livrée"]),
             DateTimeField::new('dateEnregistrement', "Date de paiement")->setFormat('d/M/Y à H:m:s')->hideOnForm(),
             AssociationField::new('produit')->onlyOnForms(),
+           
         ];
+    }
+    public function createEntity(string $entityFqcn)
+    {
+        $commande = new $entityFqcn;
+        $commande->setDateEnregistrement(new \DateTime);
+        return $commande;
+
     }
     
 }

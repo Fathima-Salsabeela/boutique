@@ -27,6 +27,7 @@
 						<td>{{ item.etat }}</td>
 						<td>{{ item.dateEnregistrement|date('d/m/Y à H:i:s') }}</td>
 						<td>{{ item.montant / 100|number_format(2) }}€</td>
+						
 					</tr>
 				{% endfor %}
 			</tbody>

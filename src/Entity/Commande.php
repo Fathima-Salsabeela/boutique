@@ -34,6 +34,22 @@ class Commande
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     private ?\DateTimeInterface $date_enregistrement = null;
 
+    #[ORM\ManyToOne(inversedBy: 'commandes')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Femme $femme = null;
+
+    #[ORM\ManyToOne(inversedBy: 'commandes')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Homme $homme = null;
+
+    #[ORM\ManyToOne(inversedBy: 'commandes')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Enfants $enfants = null;
+
+    #[ORM\ManyToOne(inversedBy: 'commandes')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Bebe $bebe = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -107,6 +123,54 @@ class Commande
     public function setDateEnregistrement(\DateTimeInterface $date_enregistrement): self
     {
         $this->date_enregistrement = $date_enregistrement;
+
+        return $this;
+    }
+
+    public function getFemme(): ?Femme
+    {
+        return $this->femme;
+    }
+
+    public function setFemme(?Femme $femme): self
+    {
+        $this->femme = $femme;
+
+        return $this;
+    }
+
+    public function getHomme(): ?Homme
+    {
+        return $this->homme;
+    }
+
+    public function setHomme(?Homme $homme): self
+    {
+        $this->homme = $homme;
+
+        return $this;
+    }
+
+    public function getEnfants(): ?Enfants
+    {
+        return $this->enfants;
+    }
+
+    public function setEnfants(?Enfants $enfants): self
+    {
+        $this->enfants = $enfants;
+
+        return $this;
+    }
+
+    public function getBebe(): ?Bebe
+    {
+        return $this->bebe;
+    }
+
+    public function setBebe(?Bebe $bebe): self
+    {
+        $this->bebe = $bebe;
 
         return $this;
     }
