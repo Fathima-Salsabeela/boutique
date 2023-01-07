@@ -174,4 +174,27 @@ return $this->renderForm('main/avis.html.twig', [
     'avis'=>$avis
 ]);
 }
+#[Route('/pricing', name: 'pricing')]
+public function pricing(): Response
+{  
+     return $this->render('main/pricing.html.twig');
+}
+
+#[Route('/help', name: 'help')]
+public function help(): Response
+{  
+     return $this->render('main/help.html.twig');
+}
+ 
+#[Route('/orders', name: 'orders')]
+public function orders (): Response
+{  
+     return $this->render('main/orders.html.twig');
+}
+
+#[Route('/setting', name: 'setting')]
+public function setting(): Response
+{  
+     return $this->render('main/setting.html.twig');
+} 
 }

@@ -32,36 +32,7 @@
 
 
 
-<h1 class="text-center">AVIS</h1>
 
-<table class="table">
-<thead>
-    <tr>
-        <th>Pseudo</th>
-        <th>ville</th>
-        <th>codepostal</th>
-        <th>suject</th>
-        <th>point</th>
-        <th>date</th>
-       
-    </tr>
-</thead>
-<tbody>
-{% for avis in avis %}
-    <tr>
-        <td>{{ avis.pseudo}}</td>
-        <td>{{ avis.ville}}</td>
-        <td>{{ avis.codepostal}}</td>
-        <td>{{ avis.suject }}</td>
-        <td>{{ avis.point}}</td>
-        <td>{{ avis.dateEnregistrement }}</td>
-	
-	
-    </tr>
- 
-{% endfor %}
-</tbody>
-</table>
 
 
 
