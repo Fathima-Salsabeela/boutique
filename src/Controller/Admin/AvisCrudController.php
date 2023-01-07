@@ -42,9 +42,9 @@ class AvisCrudController extends AbstractCrudController
 
     public function createEntity(string $entityFqcn)
     { 
-        $pr = new $entityFqcn;
-        $pr->setDateEnregistrement(new \DateTime);
-        return $pr;
+        $avis = new $entityFqcn;
+        $avis->setDateEnregistrement(new \DateTime);
+        return $avis;
     }
 
     
